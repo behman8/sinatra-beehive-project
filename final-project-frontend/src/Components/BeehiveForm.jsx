@@ -1,9 +1,9 @@
 import React from "react";
 
-function BeehiveForm() {
+function BeehiveForm({ beehive }) {
     return (
         <div>
-            <h1>Owners</h1>
+            {beehive.queen_name} - {beehive.owner.first_name} {beehive.owner.last_name}
         </div>
     )
 

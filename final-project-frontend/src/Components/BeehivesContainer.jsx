@@ -1,9 +1,10 @@
 import React from "react";
-
-function BeehivesContainer() {
+import BeehiveCard from "./BeehiveCard"
+function BeehivesContainer({ beehives }) {
     return (
         <div>
-            <h1>Owners</h1>
+            <h1>Beehives</h1>
+            {beehives.map(beehive => <BeehiveCard key={beehive.id} beehive={beehive} />)}
         </div>
     )
 

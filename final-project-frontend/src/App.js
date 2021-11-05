@@ -11,13 +11,21 @@ function App() {
 
   const [beehives, setBeehives] = useState([])
 
+  useEffect(() => {
+    fetch("http://localhost:9292/beehives")
+    .then(resp => resp.json())
+    .then(data => {
+      setBeehives([...data])
+    })
+  }, [])
+
   return (
     <div className="App">
       <Router>
         <NavBar/>
         <Switch>
           <Route path="/owners" ><OwnersContainer/></Route>
-          <Route path="/beehives" ><BeehivesContainer beehives={beehives} requesting={requesting} /></Route>
+          <Route path="/beehives" ><BeehivesContainer beehives={beehives} /></Route>
           <Route path="/beehive-form"><BeehiveForm /></Route>
           <Route exact path="/" ><WelcomePage/></Route>
         </Switch>
