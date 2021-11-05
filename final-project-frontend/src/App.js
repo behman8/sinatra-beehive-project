@@ -10,7 +10,7 @@ import BeehiveForm from './components/BeehiveForm';
 function App() {
 
   const [beehives, setBeehives] = useState([])
-  
+
   return (
     <div className="App">
       <Router>
@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route path="/owners" ><OwnersContainer/></Route>
           <Route path="/beehives" ><BeehivesContainer beehives={beehives} requesting={requesting} /></Route>
-          <Route path="/beehiveform"><BeehiveForm /></Route>
+          <Route path="/beehive-form"><BeehiveForm /></Route>
           <Route exact path="/" ><WelcomePage/></Route>
         </Switch>
       </Router>
