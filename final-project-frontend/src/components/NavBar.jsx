@@ -8,7 +8,7 @@ function Navbar() {
                 <div>
                     <h2>Bee Owners</h2>
                     <ul>
-                        <NavLink to="/">Home</NavLink> | <NavLink to="/owners">Owners</NavLink> | <NavLink to="/beehives">Beehives</NavLink> | <NavLink to="/beehive-form">Add Beehive</NavLink>
+                        <NavLink to="/">Home</NavLink> | <NavLink to="/owners">Owners</NavLink> | <NavLink to="/beehives">Beehives</NavLink> | <NavLink to="/beehiveform">Add Beehive</NavLink>
                     </ul>
                 </div>
             </nav>

@@ -1,5 +1,6 @@
 import React from "react";
 import BeehiveCard from "./BeehiveCard"
+
 function BeehivesContainer({ beehives }) {
     return (
         <div>
