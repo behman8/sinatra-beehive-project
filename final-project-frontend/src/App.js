@@ -18,9 +18,7 @@ function App() {
   }, []);
 
   const addNewBeehive = (beehiveData) => {
-    let params = {
-      beehive: {...beehiveData}
-    }
+    let params = {...beehiveData}
     fetch("http://localhost:9292/beehives", {
       method: "POST",
       headers: {
