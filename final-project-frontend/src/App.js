@@ -6,6 +6,7 @@ import BeehivesContainer from './components/BeehivesContainer';
 import OwnersContainer from './components/OwnersContainer';
 import NavBar from './components/NavBar';
 import BeehiveForm from './components/BeehiveForm';
+import BeehiveInfo from './components/BeehiveInfo';
 
 function App() {
 
@@ -43,11 +44,14 @@ function App() {
           <Route path="/owners" >
             <OwnersContainer/>
           </Route>
-          <Route path="/beehives" >
+          <Route exact path="/beehives" >
             <BeehivesContainer beehives={beehives} />
           </Route>
           <Route path="/beehiveform">
             <BeehiveForm addNewBeehive={addNewBeehive} />
+          </Route>
+          <Route exact path="/beehives/:id" >
+            <BeehiveInfo beehives={beehives} />
           </Route>
           <Route exact path="/" >
             <WelcomePage/>
