@@ -50,6 +50,12 @@ function App() {
   }
 
   const handleLike = async (beehive) => {
+    let likedBeehive = beehives.map(selectedBeehive => {
+      if(selectedBeehive.id === beehive.id){
+        return selectedBeehive.likes += 1
+      }
+    })
+  
     let params = {
         likes: beehive.likes + 1
     }
@@ -62,12 +68,7 @@ function App() {
         body: JSON.stringify(params)
     })
     let beehiveData = await resp.json()
-    let likedBeehive = beehives.map(selectedBeehive => {
-      if(selectedBeehive.id === beehive.id){
-        selectedBeehive.likes += 1
-      }
     setBeehives([...likedBeehive])
-    })
   }
 
   return (
@@ -79,7 +80,7 @@ function App() {
             <OwnersContainer/>
           </Route>
           <Route exact path="/beehives" >
-            <BeehivesContainer beehives={beehives} />
+            <BeehivesContainer beehives={beehives} handleDelete={handleDelete} handleLike={handleLike}/>
           </Route>
           <Route path="/beehiveform">
             <BeehiveForm addNewBeehive={addNewBeehive} />

@@ -10,16 +10,18 @@ function BeehiveInfo({ beehives }) {
 
     useEffect(() => {
         if(!!beehives) {
-            let selectedBeehive = beehives.find(beehiveData => beehiveData.id === Number(id))
+            let selectedBeehive = beehives.find(beehive => beehive.id === Number(id))
             setBeehive({...selectedBeehive})
         }
-    }, [setBeehive, id, beehives ])
+    }, [setBeehive, id, beehives])
 
     return (
         <div>
             {!!beehive.id ? 
             <div>
-                <BeehiveCard beehive={beehive}/>
+                {beehive.queen_name} - {beehive.owner.first_name} {beehive.owner.last_name}
+                <br></br>
+                <p>Likes: {beehive.likes}</p>
             </div>
             :
             <div>
