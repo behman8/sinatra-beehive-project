@@ -9,8 +9,8 @@ function BeehiveCard({ beehive, handleDelete, handleLike }) {
             <NavLink to={`/beehives/${beehive.id}`}>{beehive.queen_name}</NavLink> - {beehive.owner.first_name} {beehive.owner.last_name}
             <br></br>
             <p>Likes: {beehive.likes}</p>
-            <button onClick={() => handleLike(beehive)}><span role="img" aria-label="thumbs-up">👍</span></button>
-            <button onClick={() => handleDelete(beehive.id)}>Delete hive <span role="img" aria-label="sad-face">😢</span> </button>
+            <button onClick={(e) => handleLike(beehive)}><span role="img" aria-label="thumbs-up">👍</span></button>
+            <button onClick={(e) => handleDelete(beehive.id)}>Delete hive <span role="img" aria-label="sad-face">😢</span> </button>
         </div>
     )
 

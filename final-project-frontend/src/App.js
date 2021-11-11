@@ -50,15 +50,18 @@ function App() {
   }
 
   const handleLike = async (beehive) => {
-    let likedBeehive = beehives.map(selectedBeehive => {
-      if(selectedBeehive.id === beehive.id){
-        return selectedBeehive.likes += 1
+    let likedBeehive = beehives.map(hive => {
+      if(hive.id === beehive.id){
+        hive.likes = beehive.likes + 1
+        return hive
+      } else {
+        return hive
       }
     })
-  
     let params = {
-        likes: beehive.likes + 1
+      likes: beehive.likes
     }
+    setBeehives([...likedBeehive])
     let resp = await fetch(`http://localhost:9292/beehives/${beehive.id}`, {
         method: "PATCH",
         headers: {
@@ -68,7 +71,6 @@ function App() {
         body: JSON.stringify(params)
     })
     let beehiveData = await resp.json()
-    setBeehives([...likedBeehive])
   }
 
   return (
