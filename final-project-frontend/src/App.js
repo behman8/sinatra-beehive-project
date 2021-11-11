@@ -36,6 +36,40 @@ function App() {
     })
   }
 
+  const handleDelete = async (id) => {
+    let resp = await fetch(`http://localhost:9292/beehives/${id}`, {
+      method: "DELETE",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+      }
+    })
+    let beehiveData = await resp.json() 
+    let beehiveAfterDelete = beehives.filter(beehive => beehive.id !== id)
+    setBeehives([...beehiveAfterDelete])
+  }
+
+  const handleLike = async (beehive) => {
+    let params = {
+        likes: beehive.likes + 1
+    }
+    let resp = await fetch(`http://localhost:9292/beehives/${beehive.id}`, {
+        method: "PATCH",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(params)
+    })
+    let beehiveData = await resp.json()
+    let likedBeehive = beehives.map(selectedBeehive => {
+      if(selectedBeehive.id === beehive.id){
+        selectedBeehive.likes += 1
+      }
+    setBeehives([...likedBeehive])
+    })
+  }
+
   return (
     <div className="App">
       <Router>
