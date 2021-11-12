@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import BeehiveCard from "./BeehiveCard";
 
-function BeehiveInfo({ beehives }) {
+function BeehiveInfo() {
 
+    const [beehives, setBeehives] = useState([])
     const [beehive, setBeehive] = useState({})
     const { id } = useParams()
-    const history = useHistory()
+
+    useEffect(() => {
+        fetch("http://localhost:9292/beehives")
+        .then(resp => resp.json())
+        .then(data => setBeehives([...data]))
+    }, [])
 
     useEffect(() => {
         if(!!beehives) {
@@ -16,18 +22,17 @@ function BeehiveInfo({ beehives }) {
     }, [setBeehive, id, beehives])
 
     return (
-        <div>
-            {!!beehive.id ? 
+        <div> 
             <div>
-                {beehive.queen_name} - {beehive.owner.first_name} {beehive.owner.last_name}
-                <br></br>
-                <p>Likes: {beehive.likes}</p>
+                <h3>Queen's name:</h3>
+                {beehive.queen_name}
+                <h3>Owner:</h3>
+                {beehive.owner.first_name} {beehive.owner.last_name}
+                <h3>Type of Bees:</h3>
+                {beehive.type_of_bees}
+                <h3>Number of Boxes:</h3>
+                {beehive.number_of_boxes}
             </div>
-            :
-            <div>
-                loading
-            </div>
-            }
         </div>
     )
 

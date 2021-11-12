@@ -69,8 +69,8 @@ function BeehivesContainer() {
     return (
         <div>
             <h1>Beehives</h1>
-            <BeehiveForm addNewBeehive={addNewBeehive} />
             {beehives.map(beehive => <BeehiveCard key={beehive.id} beehive={beehive} handleDelete={handleDelete} handleLike={handleLike}/>)}
+            <BeehiveForm addNewBeehive={addNewBeehive} />
         </div>
     )
 
