@@ -1,20 +1,22 @@
 import React, {useState, useEffect} from "react";
+import OwnerCard from "./OwnerCard";
 
 function OwnersContainer() {
 
-    const [owner, setOwner] = useState([])
+    const [owners, setOwners] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:9292/beehives")
+        fetch("http://localhost:9292/owners")
         .then(resp => resp.json())
         .then(data => {
-            setOwner([...data])
+            setOwners([...data])
         })
     }, [])
 
     return (
         <div>
             <h1>Owners</h1>
+            {owners.map(owner => <OwnerCard owner={owner}/>)}
         </div>
     )
 
