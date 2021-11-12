@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import BeehiveCard from "./BeehiveCard"
+import BeehiveForm from "./BeehiveForm";
 
 function BeehivesContainer() {
 
@@ -68,6 +69,7 @@ function BeehivesContainer() {
     return (
         <div>
             <h1>Beehives</h1>
+            <BeehiveForm addNewBeehive={addNewBeehive} />
             {beehives.map(beehive => <BeehiveCard key={beehive.id} beehive={beehive} handleDelete={handleDelete} handleLike={handleLike}/>)}
         </div>
     )

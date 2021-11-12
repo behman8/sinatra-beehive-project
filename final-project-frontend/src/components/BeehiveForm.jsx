@@ -19,6 +19,13 @@ function BeehiveForm({ addNewBeehive }) {
     const handleSubmit = (event) => {
         event.preventDefault()
         addNewBeehive(formData)
+        setFormData({
+            queen_name: "",
+            type_of_bees: "",
+            number_of_boxes: 0,
+            owner_first_name: "",
+            owner_last_name: "",
+        })
     }
     
     return (

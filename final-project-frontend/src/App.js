@@ -19,14 +19,11 @@ function App() {
             <OwnersContainer/>
           </Route>
           <Route exact path="/beehives" >
-            <BeehivesContainer beehives={beehives} handleDelete={handleDelete} handleLike={handleLike}/>
+            <BeehivesContainer/>
           </Route>
-          <Route path="/beehiveform">
-            <BeehiveForm addNewBeehive={addNewBeehive} />
-          </Route>
-          <Route exact path="/beehives/:id" >
+          {/*<Route exact path="/beehives/:id" >
             <BeehiveInfo beehives={beehives} />
-          </Route>
+          </Route>*/}
           <Route exact path="/" >
             <WelcomePage/>
           </Route>
