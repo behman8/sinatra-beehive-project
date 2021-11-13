@@ -3,16 +3,13 @@ import {NavLink} from "react-router-dom"
 
 function Navbar() {
     return (
-        <div>
-            <nav>
-                <div>
-                    <h1>Bee Owners</h1>
-                    <p>
-                        <NavLink to="/">Home</NavLink> | <NavLink to="/owners">Owners</NavLink> | <NavLink to="/beehives">Beehives</NavLink>
-                    </p>
-                </div>
-            </nav>
-        </div>
+        <nav className="navbar">
+            <div>
+                <p>
+                    <NavLink exact to="/" activeStyle={{color: "black"}}>Home</NavLink> | <NavLink to="/owners" activeStyle={{color: "black"}}>Owners</NavLink> | <NavLink to="/beehives" activeStyle={{color: "black"}}>Beehives</NavLink>
+                </p>
+            </div>
+        </nav>
     )
 
 }

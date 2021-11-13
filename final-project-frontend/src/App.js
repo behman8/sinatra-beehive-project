@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <h1 className="header">Bee Owners</h1>
         <NavBar/>
         <Switch>
           <Route path="/owners" >

@@ -14,7 +14,7 @@ function OwnersContainer() {
     }, [])
 
     return (
-        <div>
+        <div className="owner">
             <h1>Owners</h1>
             {owners.map(owner => <OwnerCard owner={owner}/>)}
         </div>
